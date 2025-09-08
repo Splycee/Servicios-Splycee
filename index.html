@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios Splyceee</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Fondo aesthetic con degradado suave y líneas */
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #e0e0e0;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(20, 20, 35, 0.8);
+      box-shadow: 0 0 20px #30CFD0AA;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      background: linear-gradient(90deg, #30CFD0, #330867);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow:
+        0 0 5px #30CFD0,
+        0 0 10px #30CFD0,
+        0 0 15px #330867;
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+
+    .descripcion-equipo {
+      font-size: 1.25em;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      text-align: center;
+      line-height: 1.8;
+      color: #d0d0d0;
+      text-shadow: 0 0 3px rgba(0,0,0,0.6);
+    }
+
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto 80px auto;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .servicio {
+      background: rgba(20, 20, 35, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #30CFD0AA;
+      box-shadow: 0 0 15px #30CFD0AA;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .servicio:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px #30CFD0;
+    }
+
+    .servicio h2 {
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      color: #30CFD0;
+      text-shadow:
+        0 0 8px #30CFD0;
+    }
+
+    .servicio p {
+      color: #e0e0e0;
+      line-height: 1.6;
+      text-shadow: 0 0 2px rgba(0,0,0,0.7);
+    }
+
+    .icono {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 4px #30CFD0);
+      transition: filter 0.3s ease;
+    }
+
+    .servicio:hover .icono {
+      filter: drop-shadow(0 0 8px #30CFD0);
+    }
+
+    /* Sección llamada a la acción */
+    .llamada-accion {
+      background: rgba(48, 207, 208, 0.15);
+      border: 2px solid #30CFD0;
+      padding: 30px 40px;
+      max-width: 820px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+      border-radius: 25px;
+      font-size: 1.35em;
+      font-weight: 700;
+      color: #30CFD0;
+      box-shadow: 0 0 30px #30CFD0;
+      animation: pulse 2.5s infinite;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .llamada-accion:hover {
+      background-color: rgba(48, 207, 208, 0.35);
+    }
+
+    .llamada-accion a {
+      font-weight: 900;
+      color: #fff;
+      text-decoration: underline;
+      text-shadow: 0 0 5px #30CFD0;
+      transition: color 0.3s ease;
+    }
+
+    .llamada-accion a:hover {
+      color: #b3ffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      color: #30CFD0;
+      font-weight: 600;
+      font-size: 1em;
+      backdrop-filter: brightness(0.7);
+      border-top: 1px solid #30CFD0;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 15px;
+      text-shadow: 0 0 5px #30CFD0;
+    }
+
+    footer a {
+      color: #30CFD0;
+      text-decoration: underline;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow:
+          0 0 5px #30CFD0,
+          0 0 10px #30CFD0,
+          0 0 15px #330867;
+      }
+      100% {
+        text-shadow:
+          0 0 15px #30CFD0,
+          0 0 20px #30CFD0,
+          0 0 30px #330867;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px #30CFD0, 0 0 40px #30CFD0;
+      }
+      50% {
+        box-shadow: 0 0 35px #30CFD0, 0 0 60px #30CFD0;
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4em;
+      }
+
+      .descripcion-equipo {
+        font-size: 1.1em;
+      }
+
+      .llamada-accion {
+        font-size: 1.2em;
+        padding: 25px 20px;
+      }
+
+      footer {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Servicios Splycee</h1>
+
+    <p class="descripcion-equipo">
+      Somos un equipo de desarrollo dedicado a ofrecer soluciones digitales integrales y a medida. Nuestro compromiso es brindar calidad, innovación y soporte constante para que tu proyecto alcance su máximo potencial.<br /><br />
+      Contamos con profesionales expertos en diversas áreas, trabajando con metodologías ágiles y tecnologías actuales para entregar resultados que superen tus expectativas.<br /><br />
+      Nuestra misión es acompañarte desde la idea inicial hasta la implementación final, asegurando que cada detalle esté optimizado y personalizado para ti.
+    </p>
+  </header>
+
+  <section class="servicios" aria-label="Lista de servicios ofrecidos">
+    <div class="servicio" style="animation-delay: 0s;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Icono Discord" class="icono" />
+      <h2>Servidores de Discord</h2>
+      <p>
+        Configuramos servidores de Discord con estructura organizada, roles personalizados, bots útiles y seguridad para comunidades, clanes o empresas.<br /><br />
+        Diseñamos espacios interactivos y moderados que fomentan la comunicación efectiva, el crecimiento comunitario y la gestión profesional de tus miembros.
+      </p>
+    </div>
+
+    <div class="servicio" style="animation-delay: 0.2s;">
+      <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Icono Web" class="icono" />
+      <h2>Creación de Páginas Web</h2>
+      <p>
+        Desarrollamos sitios web modernos, adaptables a móviles y optimizados para cargar rápido. Ideal para marcas, negocios, portafolios y más.<br /><br />
+        Nuestros diseños priorizan la experiencia del usuario, la accesibilidad y el posicionamiento SEO para ayudarte a destacar en el entorno digital.
+      </p>
+    </div>
+
+    <div class="servicio" style="animation-delay: 0.4s;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Icono Logo" class="icono" />
+      <h2>Diseño de Logos</h2>
+      <p>
+        Creamos logos únicos, profesionales y reconocibles, pensados para destacar tu identidad visual en redes, productos o sitios web.<br /><br />
+        Trabajamos contigo para capturar la esencia de tu marca y plasmarla en un diseño memorable y versátil.
+      </p>
+    </div>
+
+    <div class="servicio" style="animation-delay: 0.6s;">
+      <img src="https://cdn-icons-png.flaticon.com/512/5969/5969069.png" alt="Icono Minecraft" class="icono" />
+      <h2>Servidores de Minecraft</h2>
+      <p>
+        Instalación y configuración de servidores con plugins, mods, rendimiento optimizado, seguridad avanzada y soporte personalizado.<br /><br />
+        Aseguramos una experiencia estable y divertida para tus jugadores con ajustes técnicos y personalizados según tus necesidades.
+      </p>
+    </div>
+  </section>
+
+  <section class="llamada-accion" tabindex="0" role="link" aria-label="Invitación a unirse al servidor de Discord">
+    Si necesitas o quieres solicitar alguno de estos servicios, <a href="https://discord.gg/" target="_blank" rel="noopener noreferrer">ven a nuestro servidor de Discord</a>, crea un ticket y cotiza tu proyecto. Estamos listos para ayudarte a llevar tus ideas a la realidad.
+  </section>
+
+  <footer>
+    Contacto: <a href="mailto:contacto@splyceee.com">contacto@splyceee.com</a>
+  </footer>
+
+</body>
+</html>
